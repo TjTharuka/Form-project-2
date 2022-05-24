@@ -36,21 +36,6 @@ const AddQuaction = ({setAddPaperState,handleDeleteQuactionBtn,handleImageAdd,id
               </BootstrapTooltip>
 
 
-              {/* answer type */}
-              {/* <FormControl  className="mt-1 flex-0-3">
-                <Select
-                  labelId="answerType"
-                  id="answerType"
-                  onChange={handleAnswerTypeChange}
-                  value={answerType}
-                >
-                  <MenuItem id={"ShortAnswer"} value="Short Answer">Short Answer</MenuItem>
-                  <MenuItem id={"LongAnswer"} value="Long Answer">Long Answer</MenuItem>
-                </Select>
-              </FormControl> */}
-
-
-
             </div>
 
             {/* Added image Preview (if uploaded image) */}

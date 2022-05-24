@@ -4,6 +4,7 @@ import { history } from '../../routers/AppRouter';
 import { loadingState } from '../loading/loading';
 import store from '../../store/configureStore';
 import { ADD_FILE, TOAST_MESSAGE, ADD_PAPER_NOW, CLEAR_UPLOADED_FILES } from '../types';
+import { async } from 'regenerator-runtime';
 
 export const addFile = (data) => ({
   type: ADD_FILE,
@@ -17,43 +18,52 @@ export const addPaperNow = (data) => ({
 });
 
 export const fileUpload =(quactionArray = []) =>async (dispatch) => {
+  try{
+        dispatch(loadingState(true));
+        // set all quaction to state
+        await quactionArray.map(async(quaction) =>{
 
-    dispatch(loadingState(true));
 
-    await quactionArray.map((quaction) => {
-      
-      // if quaction type image
-      if (quaction?.fileId) {
-        // upload image file
-        postFormData(`/files`, quaction.fileId)
-        .then(({ data }) => {
-          if (data && data.status) {
-            // set original file uploaded
-            quaction.fileId = data.data._id;
-            dispatch(addFile(quaction));
-            dispatch(loadingState(false));
+          // if quaction type image
+          if (quaction?.fileId) {
+            // upload image file
+            const {data}=await postFormData(`/files`, quaction.fileId);
+
+            if (data && data.status) {
+              // set original file uploaded
+              quaction.fileId = data.data._id;
+
+              // add  quaction with file
+              dispatch(addFile(quaction));
+              dispatch(loadingState(false));
+            } else {
+              throw new Error(data.msg || 'file upload failed');
+            }
+          
           } else {
-            throw new Error(data.msg || 'file upload failed');
+          // if quaction type text
+            console.log(`111`);
+
+            // set state to quaction
+            dispatch(addFile(quaction));
+            // set state loading state false
+            dispatch(loadingState(false));
           }
-        })
-        .catch((error) => {
-          dispatch({
-            type: TOAST_MESSAGE,
-            status: false,
-            message: error.response ? error.response.data.msg : error.message,
-          });
-          dispatch(loadingState(false));
+
+
+          
         });
-      } else {
-        // if quaction type text
-        console.log(`111`);
 
-        // set state to quaction
-        dispatch(addFile(quaction));
-        // set state loading state false
+        dispatch(addPaperNow());
+
+    }
+    catch(error){
+        dispatch({
+          type: TOAST_MESSAGE,
+          status: false,
+          message: error.response ? error.response.data.msg : error.message,
+        });
         dispatch(loadingState(false));
-      }
-    });
+    }
 
-    dispatch(addPaperNow());
   };
