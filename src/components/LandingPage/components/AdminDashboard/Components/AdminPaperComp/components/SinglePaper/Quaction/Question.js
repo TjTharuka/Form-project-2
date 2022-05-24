@@ -18,8 +18,7 @@ const AddQuaction = ({ id, imageLocation, quaction, index, answer = null }) => {
         {/* quaction */}
         <div data-id={id} id="quactionId" className={('flex-1',styles.QuactionTxt)}>
            {quaction.question}
-              {' '}
-                *
+           <span className='text-color-red ml-1'>*</span>
         </div>
 
         {/* Added image Preview (if uploaded image) */}

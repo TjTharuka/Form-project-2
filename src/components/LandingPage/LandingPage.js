@@ -42,7 +42,7 @@ const LandingPage = ({addPaperState, setAddPaperState}) => {
                 <StudentHome className=""></StudentHome>
             </Container>)}
 
-            {/* admin dashboard  (user Role)*/}
+            {/* admin dashboard  (admin Role)*/}
            {(selectUser.role===userAccessConfig.userRoles.admin) && (
               <Container>
                 <AdminDashboard className=""></AdminDashboard>

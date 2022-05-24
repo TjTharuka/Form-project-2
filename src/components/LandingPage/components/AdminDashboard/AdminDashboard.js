@@ -42,7 +42,7 @@ const AdminDashboard = ({addPaperState, setAddPaperState}) => {
     <div className={cx("pb-2 pt-2 ",styles.allPapers)}>
       
       {/* Title */}
-      <div className={cx('pl-2',styles.title)}>All Papers </div>
+      <div className={cx('pl-2 mt-2',styles.title)}>All Papers </div>
      
       {/* All papers */}
       {allPapers.map((paper,index)=>(
