@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import cx from 'classnames';
 import { FormControl, MenuItem, Select, TextField } from '@material-ui/core';
 import styles from './Question.module.scss';
+import { serverUrl } from '../../../../../../../../../api/main.api';
 
 const AddQuaction = ({ id, imageLocation, quaction, index, answer = null }) => {
   return (
@@ -17,15 +18,15 @@ const AddQuaction = ({ id, imageLocation, quaction, index, answer = null }) => {
         {/* quaction */}
         <div data-id={id} id="quactionId" className={('flex-1',styles.QuactionTxt)}>
            {quaction.question}
-{' '}
-*
-</div>
+              {' '}
+                *
+        </div>
 
         {/* Added image Preview (if uploaded image) */}
         {quaction.fileId &&(
-         <div className='display-flex mt-3'>
-  <img src={`http://localhost:5400/uploads/590x331/${quaction.fileId.new_filename}`} className={cx('border-radius-15 cursor-pointer ',styles.addedImagePreview)} />
-</div>
+        <div className='display-flex mt-3'>
+          <img src={`${serverUrl}/uploads/590x331/${quaction.fileId.new_filename}`} className={cx('border-radius-15 cursor-pointer ',styles.addedImagePreview)} />
+        </div>
         )}
 
         {/* Answer row */}
