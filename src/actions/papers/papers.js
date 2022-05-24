@@ -1,6 +1,7 @@
 import jwt_decode from 'jwt-decode';
 import { post, get } from '../../api/main.api';
 import { history } from '../../routers/AppRouter';
+import { clearUploadedFiles } from '../files/file';
 import { loadingState } from '../loading/loading';
 import {
   LOGIN,
@@ -32,14 +33,16 @@ export const createPaper = (data, closeModel) => (dispatch) => {
         dispatch(addPapareAction(data));
         dispatch(loadingState(false));
         closeModel();
-
+        
         dispatch({
           type: TOAST_MESSAGE,
           status: true,
-          message: 'quection paper submition',
+          message: 'question paper submition',
         });
+
+        dispatch(clearUploadedFiles());
       } else {
-        throw new Error(data.msg || 'quection paper submition failed');
+        throw new Error(data.msg || 'question paper submition failed');
       }
     })
     .catch((error) => {

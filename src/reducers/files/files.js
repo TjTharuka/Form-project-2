@@ -1,4 +1,4 @@
-import { ADD_FILE,ADD_PAPER_NOW } from '../../actions/types';
+import { ADD_FILE,ADD_PAPER_NOW, CLEAR_UPLOADED_FILES } from '../../actions/types';
 
 const intialState={
   uplodedFiles:[],
@@ -15,6 +15,11 @@ export default (state = intialState, action) => {
       return {
         ...state,
         addPaperState: true,
+      };
+    case CLEAR_UPLOADED_FILES:
+      return {
+        ...state,
+        uplodedFiles: [],
       };
     default:
       return {...state};

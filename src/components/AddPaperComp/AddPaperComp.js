@@ -29,6 +29,8 @@ const AddPaperComp = ({ setAddPaperState }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    console.log(upalodedFielsQuactions.uplodedFiles.length &&
+      upalodedFielsQuactions.uplodedFiles.length === allQuaction.length);
     if (
       upalodedFielsQuactions.uplodedFiles.length &&
       upalodedFielsQuactions.uplodedFiles.length === allQuaction.length
@@ -89,13 +91,12 @@ const AddPaperComp = ({ setAddPaperState }) => {
         question:element.querySelector('#quactionId').value,
         questionType:allQuaction[index].file?"image":"text",
         adminId:userId
-        // questionType:element.querySelector('#answerType').textContent
       }
       
 
       if (allQuaction[index].file) {
         const file = allQuaction[index].file.formData;
-        // tempory
+        // tempory added formData as file Id 
         newQuactionObj.fileId = file;
       }
 
