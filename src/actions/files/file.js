@@ -17,7 +17,6 @@ export const addPaperNow = (data) => ({
 });
 
 export const fileUpload =(quactionArray = []) =>async (dispatch) => {
-    console.log(quactionArray);
 
     dispatch(loadingState(true));
 

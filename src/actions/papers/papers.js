@@ -4,8 +4,6 @@ import { history } from '../../routers/AppRouter';
 import { clearUploadedFiles } from '../files/file';
 import { loadingState } from '../loading/loading';
 import {
-  LOGIN,
-  LOGOUT,
   TOAST_MESSAGE,
   ADD_PAPER,
   LOAD_PAPERS,
