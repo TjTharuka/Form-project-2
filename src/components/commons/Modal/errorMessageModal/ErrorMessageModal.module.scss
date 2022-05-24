@@ -1,0 +1,13 @@
+@import 'src/styles/base/settings';
+
+.closeIconPlacement {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.cross {
+  cursor: pointer;
+  width: 0.5rem;
+  color: $black;
+}

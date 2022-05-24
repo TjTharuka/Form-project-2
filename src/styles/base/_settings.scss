@@ -1,0 +1,145 @@
+@font-face {
+  font-family: 'Segoe UI Regular';
+  src: local('Segoe UI Regular'),
+    url(../../assets/fonts/segoeui.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Segoe UI Semibold';
+  src: local('Segoe UI Semibold'),
+    url(../../assets/fonts/segoeuisb.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Segoe UI Bold';
+  src: local('Segoe UI Bold'),
+    url(../../assets/fonts/segoeuibd.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Helvetica Regular';
+  src: local('Helvetica Regular'),
+    url(../../assets/fonts/helvetica.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: local('Helvetica Neue'),
+    url(../../assets/fonts/HelveticaNeue.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Helvetica Bold';
+  src: local('Helvetica Bold'),
+    url(../../assets/fonts/helveticabd.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'OpenSans Regular';
+  src: local('OpenSans Regular'),
+    url(../../assets/fonts/OpenSans.ttf) format('truetype');
+}
+
+// Colors
+$white: #fff;
+$off-white: #f5f5f5;
+$black: #000;
+$light-black: #1c1c1c;
+$blur-text: rgba(0, 0, 0, 0.1);
+$border: #898a8a;
+$card-background: #f6f6f6;
+$background-gray: #dddcdc;
+$background-blue: #007aff;
+$light-gray: #ececec;
+$light-gray-variant: #c7c7c7;
+$design-gray: #e7e7e7;
+$mobile-design-gray: #f2f2f2;
+$medium-gray: #8b8b8b;
+$dark-gray: #494949;
+$lighter-gray: #f9f9f9;
+$error: #ff0000;
+$logo-blue: #27fef6;
+$light-blue: #ededff;
+$prayer-card-border: #8c88e9;
+$dark-purple: #5b57d5;
+$light-logo-blue: #27fef798;
+$header-shadow-gray: #0006300d;
+$font-gray: #636363;
+$scroll-bar-border: #d8d5d5;
+$scroll-bar-color: #aaaaaa;
+$box-shadow-color: rgba(224, 224, 224, 0.76);
+$box-shadow-darker: #00000059;
+$highlight-color: #00000021;
+$text-area-border: #d1d1d1;
+$light-background: #f9f9f9;
+$dropdown-background-color: #ececec;
+$light-background-green: #e1e1e1;
+$light-blue-add-icon: #bdd5ec;
+$outline-lines: #707070;
+$link-color: #5e72e4;
+$background-lightest-gray: #fafafa;
+$transparent-white: #ffffffa6;
+$email-input-border: #016e76;
+$button-color: #34eae3;
+$buttonback-shadow-gray: #00000028;
+$placeholder-color: #b4b4b4;
+$dropdown-border-color: #949494;
+$deactivate-color: #adb5bd;
+$text-disable-gray: #8898aa;
+$search-placeholder-color: #7c7c7c;
+$progress-bar-color: #474444;
+
+// font-size
+$font-size-large: 1.8rem;
+$font-size-small: 1.4rem;
+
+// icon sizes
+$md-width: 1.125rem;
+$md-height: 1.125rem;
+
+// dash board icon sizes
+$md-width-dashboard: 1.5rem;
+$md-height-dashboard: 1.5rem;
+
+// dropdown icon sizes
+$md-width-dropdown: 2.2rem;
+$md-height-dropdown: 2.2rem;
+
+// Paragraph text size
+$para-font-small: 0.7rem;
+
+//border
+$sm-border: 0.25rem;
+$mobile-sm-border: 0.1rem;
+$thin-border: 0.1rem;
+
+//padding
+$sm-padding: 0.25rem;
+
+// Spacing
+$s-size: 1.2rem;
+$m-size: 1.6rem;
+$l-size: 3.2rem;
+$xl-size: 4.8rem;
+$desktop-breakpoint: 45rem;
+
+//font-family
+$font-family-number: mr-eaves-modern, sans-serif;
+$font-segoe-ui-regular: 'Segoe UI Regular';
+$font-segoe-ui-bold: 'Segoe UI Bold';
+$font-segoe-ui-semibold: 'Segoe UI Semibold';
+$font-helvetica-regular: 'Helvetica Regular';
+$font-helvetica-bold: 'Helvetica Bold';
+$font-helvetica-neue: 'Helvetica Neue';
+$font-opensans-regular: 'OpenSans Regular';
+
+:export {
+  logoBlue: $light-blue;
+  placeholderGray: $placeholder-color;
+  lightGray: $lighter-gray;
+  mediumGray: $medium-gray;
+  white: $white;
+  black: $black;
+  lightBlack: $light-black;
+  error: $error;
+}

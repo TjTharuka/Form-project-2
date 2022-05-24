@@ -1,0 +1,23 @@
+@import '../../../../../../../../../../styles//base/settings';
+
+#background {
+  z-index: 1;
+}
+
+.NavItem{
+  font-size: 1.28rem;
+}
+.NavActive{
+  border-bottom:3px solid #11975e;
+  transition:all .2s;
+}
+
+.studentName{
+  font-size: 1.2rem;
+  display: flex;
+}
+.paperName{
+  text-transform: capitalize;
+  font-weight: bold;
+  font-size: 1.3rem;
+}

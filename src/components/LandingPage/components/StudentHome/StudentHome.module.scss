@@ -1,0 +1,16 @@
+@import '../../../../styles/base/settings';
+
+#PaperViewModelId{
+  max-width: 50%;
+}
+
+@media(max-width:870px){
+  #PaperViewModelId{
+    max-width: 75%;
+  }
+}
+@media(max-width:576px){
+  #PaperViewModelId{
+    max-width: 100%;
+  }
+}

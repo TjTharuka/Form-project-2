@@ -1,0 +1,30 @@
+@import '../../../../styles/base/settings';
+
+.AddQuaction{
+  border-left: 7px solid #11975e;
+  border-radius: 10px;
+  border-right: 2px solid #11975e;
+  border-bottom: 2px solid #11975e;
+  border-top: 2px solid #11975e;
+}
+.QuactionRow{
+  display:flex;
+  align-items:center;
+}
+.deleteIcon:hover{
+  color: red;
+}
+
+.input{
+  padding-bottom: 1rem !important;
+}
+.inputTextField{
+  border: 1px solid #a0a0a0 !important;
+  padding-left: 0.4rem;
+}
+
+.inputLabel{
+  margin-bottom: 0;
+  font-size: .75rem;
+  color: grey;
+}

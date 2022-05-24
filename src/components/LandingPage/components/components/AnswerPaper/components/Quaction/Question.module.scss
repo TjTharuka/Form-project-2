@@ -1,0 +1,49 @@
+@import '../../../../../../../styles/base/settings';
+
+.AddQuaction{
+  border-left: 7px solid #11975e;
+  border-radius: 10px;
+  border-right: 2px solid #11975e;
+  border-bottom: 2px solid #11975e;
+  border-top: 2px solid #11975e;
+  display: flex;
+  flex-direction: column;
+}
+.addedImagePreview{
+  width: 70%;
+  outline: #80808082 solid 1px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.QuactionRow{
+  display:flex;
+  align-items:center;
+}
+.deleteIcon:hover{
+  color: red;
+}
+
+.input{
+  padding-bottom: 1rem !important;
+}
+
+#addQuactionModel{
+  max-width: 53%;
+}
+
+@media(max-width:870px){
+  #addQuactionModel{
+    max-width: 75%;
+  }
+}
+@media(max-width:576px){
+  #addQuactionModel{
+    max-width: 100%;
+  }
+}
+
+.AnswerRow{
+  width:73%;
+  border-bottom:1px solid grey;
+}

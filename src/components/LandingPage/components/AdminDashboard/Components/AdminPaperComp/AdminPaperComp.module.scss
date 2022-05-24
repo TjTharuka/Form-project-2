@@ -1,0 +1,15 @@
+@import '../../../../../../styles/base/settings';
+
+#background {
+  z-index: 1;
+}
+
+.NavItem{
+  font-size: 1.28rem;
+}
+.NavActive{
+  border-bottom:3px solid #11975e;
+  transition:all .2s;
+}
+
+

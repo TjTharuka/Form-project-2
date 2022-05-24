@@ -1,0 +1,34 @@
+@import '../../../../../../../../styles/base/settings';
+
+
+.allUsers{
+  background-color:white;
+  border-radius:5px; 
+}
+.userName{
+  font-size: 1.1rem;
+  cursor:pointer; 
+  border: 1px solid #80808066;
+  border-radius: 15px;
+  width: 100%;
+  display: flex;
+
+  &:hover{
+    background: #80808014;
+  }
+}
+
+#PaperViewModelId{
+  max-width: 53%;
+}
+
+@media(max-width:870px){
+  #PaperViewModelId{
+    max-width: 75%;
+  }
+}
+@media(max-width:576px){
+  #PaperViewModelId{
+    max-width: 100%;
+  }
+}

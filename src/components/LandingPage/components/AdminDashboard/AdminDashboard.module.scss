@@ -1,0 +1,39 @@
+@import '../../../../styles/base/settings';
+
+.title{
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.allPapers{
+  background-color:white;
+  border-radius:5px; 
+  min-height: 50vh;
+}
+.paperTitle{
+  font-size: 1.25rem;
+  cursor:pointer; 
+  border: 1px solid #80808066;
+  border-radius:15px;   
+  width: 96%;
+
+  &:hover{
+    background: #80808014;
+  }
+}
+
+
+#PaperViewModelId{
+  max-width: 50%;
+}
+
+@media(max-width:870px){
+  #PaperViewModelId{
+    max-width: 75%;
+  }
+}
+@media(max-width:576px){
+  #PaperViewModelId{
+    max-width: 100%;
+  }
+}

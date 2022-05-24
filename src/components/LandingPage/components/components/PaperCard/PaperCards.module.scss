@@ -1,0 +1,17 @@
+@import '../../../../../styles/base/settings';
+
+
+.paperCard{
+  border: 5px solid #13985f;
+  background-color: white;
+  border-radius:15px;
+  text-align:center;
+  cursor: pointer;
+}
+
+.title{
+  font-size: 1.2rem;
+}
+.difficultyLevel{
+  font-size:1rem;
+}

@@ -1,0 +1,42 @@
+@import '../../../styles/base/settings';
+.parentDiv {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  width: 80%;
+}
+
+.formGrp {
+  height: 2rem !important;
+  box-shadow: 0.1rem 1rem $header-shadow-gray;
+}
+
+.inpGrp {
+  border: 1px solid $header-shadow-gray;
+}
+
+#inputGrpText {
+  border-left: none;
+}
+
+@media only screen and (max-width: 414px) {
+  .formGrp {
+    height: 2rem !important;
+    box-shadow: none;
+  }
+
+  .inpGrp {
+    box-shadow: -0.2rem 0.3rem 0.2rem $header-shadow-gray !important;
+    border-radius: 0.4rem;
+
+    input {
+      border-radius: 0.4rem;
+      border-color: transparent;
+    }
+  }
+
+  #inputGrpText {
+    border-left: none;
+    border-radius: 0 0.4rem 0.4rem 0;
+    border-color: transparent;
+  }
+}
