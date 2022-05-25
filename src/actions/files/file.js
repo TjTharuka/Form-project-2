@@ -42,7 +42,6 @@ export const fileUpload =(quactionArray = []) =>async (dispatch) => {
           
           } else {
           // if quaction type text
-            console.log(`111`);
 
             // set state to quaction
             dispatch(addFile(quaction));

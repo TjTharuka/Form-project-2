@@ -29,8 +29,6 @@ const AddPaperComp = ({ setAddPaperState }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log(upalodedFielsQuactions.uplodedFiles.length &&
-      upalodedFielsQuactions.uplodedFiles.length === allQuaction.length);
     if (
       upalodedFielsQuactions.uplodedFiles.length &&
       upalodedFielsQuactions.uplodedFiles.length === allQuaction.length
