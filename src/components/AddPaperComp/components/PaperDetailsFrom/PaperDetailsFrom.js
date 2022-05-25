@@ -24,20 +24,16 @@ import InputError from '../../../commons/InputError/InputError';
 import styles from './PaperDetailsFrom.module.scss';
 import { FormControl, InputLabel, MenuItem, Select,SelectChangeEvent, TextField } from '@material-ui/core';
 
-const Register = ({setPaperName,diffculty,setDiffculty,grade,setGrade}) => {
+const Register = ({setPaperName,setDiffculty,}) => {
   const initialValues = {
     PaperName:"",
   };
 
 
 
-  const handlediffcultyChange = (event) => {
-    setDiffculty(event.target.value);
-  };
+  
 
-  const handlegradeChange = (event) => {
-    setGrade(event.target.value);
-  };
+  
 
   useEffect(() => {
     document.documentElement.scrollTop = 0;
@@ -102,37 +98,6 @@ const Register = ({setPaperName,diffculty,setDiffculty,grade,setGrade}) => {
           <ErrorMessage name="PaperName" component={InputError} />
         </FormGroup>
 
-        {/* diffculty */}
-        <FormControl fullWidth className="mb-4 ml-1">
-        <InputLabel id="demo-simple-select-label">diffculty</InputLabel>
-        <Select
-          labelId="diffculty"
-          id="diffculty"
-          onChange={handlediffcultyChange}
-          value={diffculty}
-        >
-          <MenuItem id={'Normal'} value="Normal">Normal</MenuItem>
-          <MenuItem id={'Easy'} value="Easy">easy</MenuItem>
-          <MenuItem id={'Hard'} value="Hard">Hard</MenuItem>
-        </Select>
-        </FormControl>
-
-        {/* Grade */}
-        <FormControl fullWidth className="mb-4 ml-1">
-        <InputLabel id="demo-simple-select-label">Grade</InputLabel>
-        <Select
-          labelId="role"
-          id="role"
-          label="Role"
-          onChange={handlegradeChange}
-          value={grade}
-        >
-          <MenuItem id={'9'} value="9">9</MenuItem>
-          <MenuItem id={'10'} value="10">10</MenuItem>
-          <MenuItem id={'11'} value="11">11</MenuItem>
-          <MenuItem id={'12'} value="12">12</MenuItem>
-        </Select>
-        </FormControl>
       </Form>
     </Formik>
   </>

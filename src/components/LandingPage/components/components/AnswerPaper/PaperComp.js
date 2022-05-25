@@ -13,15 +13,9 @@ import { submitAnswerPaper } from '../../../../../actions/answerPaper/answerPape
 
 const PaperComp = ({setPaperViewState}) => {
 
-  // STATE
-  const [allQuaction, setAllQuaction] = useState([]);
-  const [PaperName, setPaperName] = useState("");
-  const [diffculty, setDiffculty] = useState("Normal");
-  const [grade, setGrade] = useState(10);
 
   // REDUX STATE
   const userId = useSelector((state) =>state.auth.user.user_id);
-  // const quactions = useSelector((state) =>state.paperReducer.selectedPaper?.quactions?state.paperReducer.selectedPaper?.quactions:[]);
   const selectedPaper = useSelector((state) =>state.paperReducer?.selectedPaper);
 
   const dispatch = useDispatch();

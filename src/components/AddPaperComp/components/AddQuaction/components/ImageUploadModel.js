@@ -8,16 +8,6 @@ import BootstrapTooltip from '../../../../commons/toolTips/ToolTips';
 import FileUpload from '../../../../commons/FileUpload/FileUpload';
 const ImageUploadMOdel = ({id,setImageUploadModel,handleImageAdd,imageLocation}) => {
 
-  // STATE
-  const [allQuaction, setAllQuaction] = useState([]);
-  const [PaperName, setPaperName] = useState("");
-  const [diffculty, setDiffculty] = useState("Normal");
-  const [grade, setGrade] = useState(10);
-
-
-  // EVENT HANDLERS
-
-
   return (
     <div className={cx(styles.ImageUploadModel)}>
       {/* Close button */}

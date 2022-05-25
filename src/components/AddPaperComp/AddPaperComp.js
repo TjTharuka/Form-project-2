@@ -19,8 +19,6 @@ const AddPaperComp = ({ setAddPaperState }) => {
   // STATE
   const [allQuaction, setAllQuaction] = useState([]);
   const [PaperName, setPaperName] = useState('');
-  const [diffculty, setDiffculty] = useState('Normal');
-  const [grade, setGrade] = useState(10);
 
   // REDUX STATE
   const userId = useSelector((state) => state.auth.user.user_id);
@@ -39,8 +37,6 @@ const AddPaperComp = ({ setAddPaperState }) => {
           {
             PaperName: PaperName,
             adminId: userId,
-            dificultyLevel: diffculty,
-            grade: grade,
             quactions: upalodedFielsQuactions.uplodedFiles,
           },
           setAddPaperState
@@ -176,10 +172,6 @@ const AddPaperComp = ({ setAddPaperState }) => {
         {/* paper details form */}
         <PaperDetailsFrom
           setPaperName={setPaperName}
-          diffculty={diffculty}
-          setDiffculty={setDiffculty}
-          grade={grade}
-          setGrade={setGrade}
         ></PaperDetailsFrom>
 
         {/* Added Quactions */}
