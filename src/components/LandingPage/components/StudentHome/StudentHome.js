@@ -7,7 +7,7 @@ import cx from 'classnames';
 import PaperCard from '../components/PaperCard/PaperCards';
 import PaperComp from '../components/AnswerPaper/PaperComp';
 import { useDispatch, useSelector } from 'react-redux';
-import { loadPapers, selectPaper } from '../../../../actions';
+import {  loadUserPapers, selectPaper } from '../../../../actions';
 import BasicModal from '../../../commons/Modal/BasicModal/BasicModal';
 
 const StudentHome = ({addPaperState, setAddPaperState}) => {
@@ -15,13 +15,15 @@ const StudentHome = ({addPaperState, setAddPaperState}) => {
   // REDUX STATE
   const allPapers = useSelector((state) =>state.paperReducer.papers);
   const [paperViewState, setPaperViewState] = useState(false);
+  const userId = useSelector((state) => state.auth.user.user_id);
+
 
 
   const dispatch = useDispatch();
 
   useEffect(()=>{
     // load all papers
-    dispatch(loadPapers());
+    dispatch(loadUserPapers(`/${userId}`));
   },[]);
 
   // EVENT HANDLERS

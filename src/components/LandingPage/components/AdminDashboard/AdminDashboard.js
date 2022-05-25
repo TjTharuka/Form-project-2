@@ -22,7 +22,7 @@ const AdminDashboard = ({addPaperState, setAddPaperState}) => {
 
   useEffect(()=>{
     // load all answePapers
-    dispatch(loadPapers(`?adminId=${adminId}`));
+    dispatch(loadPapers());
   },[dispatch]);
 
   // EVENT HANDLERS3

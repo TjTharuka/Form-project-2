@@ -52,11 +52,34 @@ export const createPaper = (data, closeModel) => (dispatch) => {
       dispatch(loadingState(false));
     });
 };
-export const loadPapers =
-  (quary = '') =>
-  (dispatch) => {
+
+// get paper by specific user 
+export const loadUserPapers =(quary = '') =>(dispatch) => {
     dispatch(loadingState(true));
-    get(`/papers${quary}`)
+    console.log(quary);
+    get(`/users${quary}`)
+      .then(({ data }) => {
+        if (data && data.status) {
+          dispatch(loadPaperAction(data.data.assigned_papers));
+          dispatch(loadingState(false));
+        } else {
+          throw new Error(data.msg || 'paper load failed');
+        }
+      })
+      .catch((error) => {
+        dispatch({
+          type: TOAST_MESSAGE,
+          status: false,
+          message: error.response ? error.response.data.msg : error.message,
+        });
+        dispatch(loadingState(false));
+      });
+  };
+
+export const loadPapers =(quary = '') =>(dispatch) => {
+    dispatch(loadingState(true));
+    console.log(quary);
+    get(`/papers`)
       .then(({ data }) => {
         if (data && data.status) {
           dispatch(loadPaperAction(data.data.value));

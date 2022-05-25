@@ -35,7 +35,7 @@ export const fileUpload =(quactionArray = []) =>async (dispatch) => {
 
               // add  quaction with file
               dispatch(addFile(quaction));
-              dispatch(loadingState(false));
+              // dispatch(loadingState(false));
             } else {
               throw new Error(data.msg || 'file upload failed');
             }
@@ -46,7 +46,7 @@ export const fileUpload =(quactionArray = []) =>async (dispatch) => {
             // set state to quaction
             dispatch(addFile(quaction));
             // set state loading state false
-            dispatch(loadingState(false));
+            // dispatch(loadingState(false));
           }
 
 
