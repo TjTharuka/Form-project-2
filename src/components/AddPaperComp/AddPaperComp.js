@@ -18,7 +18,6 @@ import { fileUpload } from '../../actions/files/file';
 const AddPaperComp = ({ setAddPaperState }) => {
   // STATE
   const [allQuaction, setAllQuaction] = useState([]);
-  const [allQuactionCount, setAllQuactionCount] = useState('');
   const [PaperName, setPaperName] = useState('');
 
   // REDUX STATE
@@ -140,9 +139,6 @@ const AddPaperComp = ({ setAddPaperState }) => {
       }
     });
 
-    console.log(newQuactionArray);
-    // set all quaction count
-    setAllQuactionCount(newQuactionArray.length);
 
     // upload all files and set all quactions to redux
     dispatch(fileUpload(newQuactionArray));

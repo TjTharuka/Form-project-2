@@ -56,7 +56,6 @@ export const createPaper = (data, closeModel) => (dispatch) => {
 // get paper by specific user 
 export const loadUserPapers =(quary = '') =>(dispatch) => {
     dispatch(loadingState(true));
-    console.log(quary);
     get(`/users${quary}`)
       .then(({ data }) => {
         if (data && data.status) {
@@ -78,7 +77,6 @@ export const loadUserPapers =(quary = '') =>(dispatch) => {
 
 export const loadPapers =(quary = '') =>(dispatch) => {
     dispatch(loadingState(true));
-    console.log(quary);
     get(`/papers`)
       .then(({ data }) => {
         if (data && data.status) {

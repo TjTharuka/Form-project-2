@@ -8,7 +8,6 @@ const intialState={
 export default (state = intialState, action) => {
   switch (action.type) {
     case ADD_FILE:
-      console.log(action);
       return {
         ...state,
         fileQuactions: [...state.fileQuactions,action.data],

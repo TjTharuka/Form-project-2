@@ -37,7 +37,6 @@ export const fileUpload =(quactionArray = []) =>async (dispatch) => {
         await quactionArray.map(async(quaction,index) =>{
           // if quaction type image
           if (quaction?.fileId) {
-            console.log(quaction);
 
             const indexSaved=index;
             
@@ -47,9 +46,6 @@ export const fileUpload =(quactionArray = []) =>async (dispatch) => {
             // upload image file
             const {data}=await postFormData(`/files`, quaction.fileId);
             if (data && data.status) {
-              console.log(quaction.fileId);
-              console.log(data);
-              console.log(`👍👍`);
               // set original file uploaded
               quaction.fileId = data.data._id;
 
