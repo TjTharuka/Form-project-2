@@ -18,6 +18,7 @@ import { fileUpload } from '../../actions/files/file';
 const AddPaperComp = ({ setAddPaperState }) => {
   // STATE
   const [allQuaction, setAllQuaction] = useState([]);
+  const [allQuactionCount, setAllQuactionCount] = useState('');
   const [PaperName, setPaperName] = useState('');
 
   // REDUX STATE
@@ -26,42 +27,18 @@ const AddPaperComp = ({ setAddPaperState }) => {
 
   const dispatch = useDispatch();
 
+  // if quaction include image and text
   useEffect(() => {
-    // if (
-    //   upalodedFielsQuactions.fileQuactions.length &&
-    //   upalodedFielsQuactions.fileQuactions.length === allQuaction.length
-    // ) {
-    //   // create quaction paper
-    //   dispatch(
-    //     createPaper(
-    //       {
-    //         PaperName: PaperName,
-    //         adminId: userId,
-    //         quactions: upalodedFielsQuactions.fileQuactions,
-    //       },
-    //       setAddPaperState
-    //     )
-    //   );
-    // }
-
-    // console.log(upalodedFielsQuactions.fileQuactions);
     const allQuactions=[...upalodedFielsQuactions.allQuactions];
     const fileQuactions=[...upalodedFielsQuactions.fileQuactions];
     const fileQuactionLength=upalodedFielsQuactions.fileQuactions.length;
-    const allQuactionLength=allQuactions.filter(quaction=>{
-      console.log(quaction.fileId);
-      return quaction.fileId===true;
-    });
-    // upalodedFielsQuactions.allQuactions.filter(quaction=>quaction.fileId)
-    console.log(fileQuactionLength===allQuactionLength.length);
-    console.log(allQuactionLength);
+    const allQuactionLength=allQuactions.filter(quaction=>quaction.fileId===true);
 
-    if((allQuactions.length )&& fileQuactionLength===allQuactionLength.length){
+    // set all file ids spefic quaction 
+  if((allQuactions.length )&& fileQuactionLength===allQuactionLength.length){
       fileQuactions.map(quaction=>{
         allQuactions[quaction.index]=quaction;
       })
-
-      console.log(allQuactions);
 
 
       dispatch(
@@ -75,9 +52,33 @@ const AddPaperComp = ({ setAddPaperState }) => {
             )
           );
     }
-
-
   }, [upalodedFielsQuactions.fileQuactions]);
+
+
+  // if all quaction text
+  useEffect(() => {
+
+    const allQuactions=[...upalodedFielsQuactions.allQuactions];
+    const allQuactionFiles=allQuactions.filter(quaction=>quaction.fileId===true);
+
+
+    if((allQuactions.length )&& (!allQuactionFiles.length)){
+      // disparch all quactions 
+      dispatch(
+            createPaper(
+              {
+                PaperName: PaperName,
+                adminId: userId,
+                quactions: allQuactions,
+              },
+              setAddPaperState
+            )
+          );
+          
+    }
+
+
+  }, [upalodedFielsQuactions.allQuactions]);
 
   // EVENT HANDLERS
   // handle add quaction
@@ -130,14 +131,18 @@ const AddPaperComp = ({ setAddPaperState }) => {
 
       if (newQuactionObj.question) {
         newQuactionArray.push(newQuactionObj);
+        return;
       } else {
         // remove empty quaction
-        const closeAllQuaction = [...allQuaction];
-        closeAllQuaction.splice(index, 1);
-        setAllQuaction(closeAllQuaction);
+        // const closeAllQuaction = [...allQuaction];
+        // closeAllQuaction.splice(index, 1);
+        // setAllQuaction(closeAllQuaction);
       }
-      return;
     });
+
+    console.log(newQuactionArray);
+    // set all quaction count
+    setAllQuactionCount(newQuactionArray.length);
 
     // upload all files and set all quactions to redux
     dispatch(fileUpload(newQuactionArray));

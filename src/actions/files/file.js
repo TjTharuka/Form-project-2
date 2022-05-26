@@ -21,6 +21,17 @@ export const clearAllQuactions = (data) => ({
 export const fileUpload =(quactionArray = []) =>async (dispatch) => {
   try{
         dispatch(loadingState(true));
+        
+        // if empty questions
+        if(!quactionArray.length){
+          dispatch({
+            type: TOAST_MESSAGE,
+            status: false,
+            message: "no questions",
+          });
+          
+          return dispatch(loadingState(false));
+        }
 
         // set all quaction to state
         await quactionArray.map(async(quaction,index) =>{
