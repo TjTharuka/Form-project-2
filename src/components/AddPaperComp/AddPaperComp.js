@@ -27,23 +27,57 @@ const AddPaperComp = ({ setAddPaperState }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (
-      upalodedFielsQuactions.uplodedFiles.length &&
-      upalodedFielsQuactions.uplodedFiles.length === allQuaction.length
-    ) {
-      // create quaction paper
+    // if (
+    //   upalodedFielsQuactions.fileQuactions.length &&
+    //   upalodedFielsQuactions.fileQuactions.length === allQuaction.length
+    // ) {
+    //   // create quaction paper
+    //   dispatch(
+    //     createPaper(
+    //       {
+    //         PaperName: PaperName,
+    //         adminId: userId,
+    //         quactions: upalodedFielsQuactions.fileQuactions,
+    //       },
+    //       setAddPaperState
+    //     )
+    //   );
+    // }
+
+    // console.log(upalodedFielsQuactions.fileQuactions);
+    const allQuactions=[...upalodedFielsQuactions.allQuactions];
+    const fileQuactions=[...upalodedFielsQuactions.fileQuactions];
+    const fileQuactionLength=upalodedFielsQuactions.fileQuactions.length;
+    const allQuactionLength=allQuactions.filter(quaction=>{
+      console.log(quaction.fileId);
+      return quaction.fileId===true;
+    });
+    // upalodedFielsQuactions.allQuactions.filter(quaction=>quaction.fileId)
+    console.log(fileQuactionLength===allQuactionLength.length);
+    console.log(allQuactionLength);
+
+    if((allQuactions.length )&& fileQuactionLength===allQuactionLength.length){
+      fileQuactions.map(quaction=>{
+        allQuactions[quaction.index]=quaction;
+      })
+
+      console.log(allQuactions);
+
+
       dispatch(
-        createPaper(
-          {
-            PaperName: PaperName,
-            adminId: userId,
-            quactions: upalodedFielsQuactions.uplodedFiles,
-          },
-          setAddPaperState
-        )
-      );
+            createPaper(
+              {
+                PaperName: PaperName,
+                adminId: userId,
+                quactions: allQuactions,
+              },
+              setAddPaperState
+            )
+          );
     }
-  }, [upalodedFielsQuactions.uplodedFiles]);
+
+
+  }, [upalodedFielsQuactions.fileQuactions]);
 
   // EVENT HANDLERS
   // handle add quaction

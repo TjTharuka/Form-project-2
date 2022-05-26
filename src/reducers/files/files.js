@@ -1,25 +1,28 @@
-import { ADD_FILE,ADD_PAPER_NOW, CLEAR_UPLOADED_FILES } from '../../actions/types';
+import { ADD_FILE, CLEAR_ALL_QUACTION,ADD_All_QUACTIONS } from '../../actions/types';
 
 const intialState={
-  uplodedFiles:[],
-  addPaperState:false,
+  fileQuactions:[],
+  allQuactions:[],
 };
 
 export default (state = intialState, action) => {
   switch (action.type) {
     case ADD_FILE:
-      return {
-        uplodedFiles: [...state.uplodedFiles,action.data],
-      };
-    case ADD_PAPER_NOW:
+      console.log(action);
       return {
         ...state,
-        addPaperState: true,
+        fileQuactions: [...state.fileQuactions,action.data],
       };
-    case CLEAR_UPLOADED_FILES:
+      case ADD_All_QUACTIONS:
+        return {
+        ...state,
+        allQuactions: [...state.allQuactions,action.data],
+      };
+    case CLEAR_ALL_QUACTION:
       return {
         ...state,
-        uplodedFiles: [],
+        allQuactions: [],
+        fileQuactions: [],
       };
     default:
       return {...state};

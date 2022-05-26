@@ -1,7 +1,7 @@
 import jwt_decode from 'jwt-decode';
 import { post, get } from '../../api/main.api';
 import { history } from '../../routers/AppRouter';
-import { clearUploadedFiles } from '../files/file';
+import { clearAllQuactions } from '../files/file';
 import { loadingState } from '../loading/loading';
 import {
   TOAST_MESSAGE,
@@ -38,7 +38,7 @@ export const createPaper = (data, closeModel) => (dispatch) => {
           message: 'question paper submition',
         });
 
-        dispatch(clearUploadedFiles());
+        dispatch(clearAllQuactions());
       } else {
         throw new Error(data.msg || 'question paper submition failed');
       }

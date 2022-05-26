@@ -7,8 +7,8 @@ export const LOAD_PAPERS = 'LOAD_PAPERS';
 export const ADD_PAPER = 'ADD_PAPER';
 export const SELECT_PAPER = 'SELECT_PAPER';
 export const ADD_FILE = 'ADD_FILE';
-export const CLEAR_UPLOADED_FILES = 'CLEAR_UPLOADED_FILES';
-export const ADD_PAPER_NOW = 'ADD_PAPER_NOW';
+export const ADD_All_QUACTIONS = 'ADD_All_QUACTIONS';
+export const CLEAR_ALL_QUACTION = 'CLEAR_ALL_QUACTION';
 
 // Answers
 export const LOAD_ANSWER_PAPERS = 'LOAD_ANSWER_PAPERS';

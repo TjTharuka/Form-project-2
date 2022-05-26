@@ -3,51 +3,60 @@ import { post, postFormData } from '../../api/main.api';
 import { history } from '../../routers/AppRouter';
 import { loadingState } from '../loading/loading';
 import store from '../../store/configureStore';
-import { ADD_FILE, TOAST_MESSAGE, ADD_PAPER_NOW, CLEAR_UPLOADED_FILES } from '../types';
+import { ADD_FILE, TOAST_MESSAGE, ADD_All_QUACTIONS, CLEAR_ALL_QUACTION } from '../types';
 import { async } from 'regenerator-runtime';
 
 export const addFile = (data) => ({
   type: ADD_FILE,
   data,
 });
-export const clearUploadedFiles = (data) => ({
-  type: CLEAR_UPLOADED_FILES,
+export const addAllQuactions = (data) => ({
+  type: ADD_All_QUACTIONS,
+  data,
 });
-export const addPaperNow = (data) => ({
-  type: ADD_PAPER_NOW,
+export const clearAllQuactions = (data) => ({
+  type: CLEAR_ALL_QUACTION,
 });
 
 export const fileUpload =(quactionArray = []) =>async (dispatch) => {
   try{
         dispatch(loadingState(true));
+
         // set all quaction to state
-        await quactionArray.map(async(quaction) =>{
-
-
+        await quactionArray.map(async(quaction,index) =>{
           // if quaction type image
           if (quaction?.fileId) {
+            console.log(quaction);
+
+            const indexSaved=index;
+            
+            // add  quaction with file
+            dispatch(addAllQuactions({...quaction,fileId:true}));
+            
             // upload image file
             const {data}=await postFormData(`/files`, quaction.fileId);
-
             if (data && data.status) {
+              console.log(quaction.fileId);
+              console.log(data);
+              console.log(`👍👍`);
               // set original file uploaded
               quaction.fileId = data.data._id;
 
               // add  quaction with file
-              dispatch(addFile(quaction));
+              dispatch(addFile({...quaction,index:indexSaved}));
             } else {
               throw new Error(data.msg || 'file upload failed');
             }
           
-          } else {
+          } 
           // if quaction type text
+          else {
 
             // set state to quaction
-            dispatch(addFile(quaction));
+            dispatch(addAllQuactions(quaction));
           }
         });
 
-        dispatch(addPaperNow());
 
     }
     catch(error){
